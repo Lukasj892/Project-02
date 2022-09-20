@@ -1,2 +1,13 @@
-# Project-02
-Asteroids Clone
+
+    # 2043: Battle for Area 69
+        Created for class project due 9/24/2022
+        Top-Down shooter similar to Asteroids Arcade Game
+    ## Implementation
+    Built off the project created in class.
+    Sprite Assets created by me via photoshop.
+    ## References
+    Asteroids Arcade Game
+    ## Future Development
+    N/A
+    ## Created by
+    Lukas Jackson
