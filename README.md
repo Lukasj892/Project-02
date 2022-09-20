@@ -4,7 +4,7 @@
         Top-Down shooter similar to Asteroids Arcade Game created in Godot.
     ## Implementation
     Built off the project created in class.
-    Sprite Assets created by me using photoshop. (Assets can be found in assets folder.)
+    Sprite Assets created by me using photoshop.
     ## References
     Asteroids Arcade Game
     ## Future Development
