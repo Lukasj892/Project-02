@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 var velocity = Vector2.ZERO
 
-var rotation_speed = 5.0
+var rotation_speed = 2
 var speed = 5.0
 var max_speed = 400.0
 var health = 1
@@ -16,7 +16,7 @@ var nose = Vector2(0,-60)
 
 
 func _ready():
-	pass
+	velocity.y -= 50
 
 func _physics_process(_delta):
 	velocity = velocity + get_input()*speed
@@ -39,12 +39,18 @@ func get_input():
 	var to_return = Vector2.ZERO
 	$Exhaust.hide()
 	if Input.is_action_pressed("forward"):
-		to_return.y -= 1
+		to_return.y -= 5
+		rotation_speed = 1.75
+		#print_debug("rot speed = " + str(rotation_speed))
 		$Exhaust.show()
 	if Input.is_action_pressed("left"):
 		rotation_degrees = rotation_degrees - rotation_speed
 	if Input.is_action_pressed("right"):
 		rotation_degrees = rotation_degrees + rotation_speed
+	else:
+		#Jet can turn faster while not being propelled forward.
+		rotation_speed = 3
+		#print_debug("rot speed = " + str(rotation_speed))
 	return to_return.rotated(rotation)
 	
 func damage(d):
