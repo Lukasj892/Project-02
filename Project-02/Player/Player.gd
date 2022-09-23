@@ -13,7 +13,7 @@ onready var Explosion = load("res://Effects/Explosion.tscn")
 onready var Bullet = load("res://Player/Bullet.tscn")
 var nose = Vector2(0,-60)
 
-
+onready var AmmoBar = get_node("/root/Game/UI_Canvas/HUD/AmmoBar/Border/BG/Bar")
 
 func _ready():
 	velocity.y -= 50
@@ -22,16 +22,22 @@ func _physics_process(_delta):
 	velocity = velocity + get_input()*speed
 	velocity = velocity.normalized() * clamp(velocity.length(), 0, max_speed)
 	velocity = move_and_slide(velocity, Vector2.ZERO)
+	if Input.is_action_pressed("back"):
+		if velocity.x > 50 or velocity.x < -50 or velocity.y > 50 or velocity.y < -50:
+			velocity *= 0.95
+		else:
+			velocity *= 0.99
 	position.x = wrapf(position.x, 0, Global.VP.x)
 	position.y = wrapf(position.y, 0, Global.VP.y)
 
-	if Input.is_action_just_pressed("shoot"):
-		Effects = get_node_or_null("/root/Game/Effects")
-		if Effects != null:
-			var bullet = Bullet.instance()
-			bullet.global_position = global_position + nose.rotated(rotation)
-			bullet.rotation = rotation
-			Effects.add_child(bullet)
+	if Input.is_action_pressed("shoot"):
+		if AmmoBar.rect_scale.x > 0.1:
+			Effects = get_node_or_null("/root/Game/Effects")
+			if Effects != null:
+				var bullet = Bullet.instance()
+				bullet.global_position = global_position + nose.rotated(rotation)
+				bullet.rotation = rotation
+				Effects.add_child(bullet)
 
 
 
@@ -49,7 +55,7 @@ func get_input():
 		rotation_degrees = rotation_degrees + rotation_speed
 	else:
 		#Jet can turn faster while not being propelled forward.
-		rotation_speed = 3
+		rotation_speed = 2.25
 		#print_debug("rot speed = " + str(rotation_speed))
 	return to_return.rotated(rotation)
 	

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Assets/HyperspaceBold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://UI/HUD.gd" type="Script" id=2]
+[ext_resource path="res://UI/AmmoBar.tscn" type="PackedScene" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 1 )
@@ -48,5 +49,11 @@ autostart = true
 [node name="Indicator_Container" type="Control" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
+
+[node name="AmmoBar" parent="." instance=ExtResource( 3 )]
+anchor_left = 1.0
+anchor_top = 1.0
+margin_left = -40.0
+margin_top = -40.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

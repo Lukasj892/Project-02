@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://UI/Bar.gd" type="Script" id=1]
+
+[node name="AmmoBar" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Border" type="ColorRect" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -110.0
+margin_top = -30.0
+margin_right = -10.0
+margin_bottom = -10.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="BG" type="ColorRect" parent="Border"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -97.0
+margin_top = -17.0
+margin_right = -3.0
+margin_bottom = -3.0
+
+[node name="Bar" type="ColorRect" parent="Border/BG"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -94.0
+margin_top = -14.0
+grow_horizontal = 0
+color = Color( 1, 0.584314, 0, 1 )
+script = ExtResource( 1 )
