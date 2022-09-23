@@ -38,8 +38,9 @@ __meta__ = {
 }
 
 [node name="HowToPlay" type="Label" parent="Background"]
+anchor_top = -0.0344828
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 1.02069
 margin_left = 10.0
 margin_top = 82.0
 margin_right = -10.0
@@ -55,7 +56,8 @@ a and d keys: turns the aircraft left and right
 s key: switches aircraft into vtol mode, allowing it to turn 
 quickly at the cost of speed
 
-space key: Hold to fire a barrage of explosive bullets
+space key: Hold to fire a barrage of explosive bullets. Ammo 
+recharges over time
 
 escape (esc) key: pauses the game"
 __meta__ = {
